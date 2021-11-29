@@ -1,0 +1,47 @@
+/* p tags */
+p {
+    color: purple;
+}
+/* ANY element with a class of heading */
+.heading {
+    color: pink;
+}
+
+/* Applies to h1's AND h2's */
+h1 , h2 {
+    color: red;
+}
+
+/* h1 with an id of mainHeader */
+h1#mainHeader {
+    color: green;
+}
+
+/* ANY element with an id of mainHeader */
+#mainHeader {
+    color: brown;
+}
+/* applies to the body - can be inherited by anything underneath it */
+body {
+    color: yellow;
+    font-size: xx-large;
+}
+/* applies to any footer */
+footer {
+    color: orange;
+    font-size: xx-small;
+}
+/* only applies to h6's in footers */
+footer h6 {
+    color: black;
+}
+
+/* only applies to an h6 DIRECTLY BELOW a footer */
+footer > h6 {
+    color: blue;
+}
+
+/* appplies to any h6 */
+h6 {
+    color: white;
+}
