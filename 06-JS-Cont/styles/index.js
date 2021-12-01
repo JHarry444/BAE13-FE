@@ -31,7 +31,7 @@ function butTheImplication() {
 function byMyOwnPetard() {
     innocentVar = 27; //should error here due to variable not being declared yet
     {
-        let innocentVar = null;
+        var innocentVar = null;
     }
    return innocentVar;
 }
@@ -63,5 +63,15 @@ function truthyFalsey(var1) {
     }
 }
 
+
+function global() {
+    function inner() {
+        return "Hello";
+    }
+
+    const msg = inner();
+
+    return msg;
+}
 
 // ; inserted at end of file
