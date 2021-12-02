@@ -23,3 +23,10 @@ milesInput.addEventListener("input", function(event) {
     console.log(km);
     kmInput.value = km;
 });
+
+const helpMeFunction = () => {
+    console.log("Bloop da W00p");
+}
+
+
+helpMeFunction();

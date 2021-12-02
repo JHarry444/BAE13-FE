@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        main {
+            max-width: 20%;
+            display: grid;
+        }
+        main > div {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Let's get counting</h1>
+    </header>
+    <main>
+        <input type="number" name="counter" id="counter" value="0" readonly>
+        <div>
+            <button class="counterButton" id="minusFive" onclick="minusFive()">-5</button>
+            <button class="counterButton" id="minusOne">-1</button>
+            <button class="counterButton" id="reset">R</button>
+            <button class="counterButton" id="plusOne">+1</button>
+            <button class="counterButton" id="plusFive">+5</button>
+        </div>
+    </main>
+    <script src="./scripts/counter.js"></script>
+</body>
+
+</html>
