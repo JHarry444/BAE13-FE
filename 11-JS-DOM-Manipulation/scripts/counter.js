@@ -4,6 +4,7 @@ const counter = document.querySelector("input#counter");
 
 const output = document.querySelector("section#history");
 
+
 const addHistory = (current, change, newValue) => {
     const newHistory = document.createElement("p");
     if (change === 0) {
@@ -28,3 +29,14 @@ const updateCounter = (change) => {
 
     addHistory(current, change, newValue);
 }
+
+const buttons = document.querySelectorAll("button.counterButton");
+buttons.forEach(function(btn) {
+    btn.addEventListener("click", function(event) {
+        const button = event.target;
+        console.log(button);
+        const change = button.innerText;
+        console.log(change);
+        updateCounter(change);
+    })
+});
