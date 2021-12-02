@@ -28,18 +28,18 @@
         <section>
             <input type="number" name="counter" id="counter" value="0" readonly>
             <div>
-                <button class="counterButton" id="minusFive" onclick="updateCounter(-5)">-5</button>
-                <button class="counterButton" id="minusOne" onclick="updateCounter(-1)">-1</button>
-                <button class="counterButton" id="reset" onclick="updateCounter('R')">R</button>
-                <button class="counterButton" id="plusOne" onclick="updateCounter(+1)">+1</button>
-                <button class="counterButton" id="plusFive" onclick="updateCounter(+5)">+5</button>
+                <button class="counterButton" id="minusFive" onclick="minusFive()">-5</button>
+                <button class="counterButton" id="minusOne" onclick="minusOne()">-1</button>
+                <button class="counterButton" id="reset" onclick="resetCounter()">R</button>
+                <button class="counterButton" id="plusOne" onclick="plusOne()">+1</button>
+                <button class="counterButton" id="plusFive" onclick="plusFive()">+5</button>
             </div>
         </section>
         <h2>History</h2>
         <section id="history">
         </section>
     </main>
-    <script src="./scripts/counter.js"></script>
+    <script src="./scripts/counter-basic.js"></script>
 </body>
 
 </html>

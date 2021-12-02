@@ -2,12 +2,29 @@
 
 const counter = document.querySelector("input#counter");
 
-const minusFive = () => {
-    const current = counter.value;
-    console.log("CURR:", current);
+const output = document.querySelector("section#history");
 
-    const newValue = Number.parseInt(current) - 5;
-    console.log("NEW:", newValue);
+const addHistory = (current, change, newValue) => {
+    const newHistory = document.createElement("p");
+    if (change === 0) {
+        newHistory.innerText = 0;
+    } else {
+        newHistory.innerText = `${current} ${change} = ${newValue}`;
+    }
+    output.appendChild(newHistory);
+}
+
+const updateCounter = (change) => {
+    if (change === 'R') {
+        counter.value = 0;
+        addHistory(null, 0, null);
+        return;
+    }
+    const current = counter.value;
+
+    const newValue = Number.parseInt(current) + change ;
 
     counter.value = newValue;
+
+    addHistory(current, change, newValue);
 }
