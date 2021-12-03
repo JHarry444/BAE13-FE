@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducks</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+        integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <h1>Ducks</h1>
+    <main>
+        <section>
+            <h2>DELETE DUCKS</h2>
+            <form id="deleteForm">
+                <label for="duckId">Id:</label>
+                <input type="text" name="duckId" id="duckId">
+                <button type="submit">Delete</button>
+            </form>
+        </section>
+        <section>
+            <h2>POST DUCKS</h2>
+            <form id="duckForm">
+                <label for="duckName">Name:</label>
+                <input type="text" name="name" id="duckName">
+                <label for="duckAge">Age:</label>
+                <input type="number" name="age" id="duckAge">
+                <label for="duckColour">Colour:</label>
+                <input type="text" name="colour" id="duckColour">
+                <label for="duckHabitat">Habitat:</label>
+                <input type="text" name="habitat" id="duckHabitat">
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section>
+            <h2>GET DUCKS</h2>
+            <div id="getOutput">
+            </div>
+        </section>
+    </main>
+    <script src="./scripts/ducks.js"></script>
+</body>
+
+</html>
