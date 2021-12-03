@@ -34,15 +34,32 @@ axios
         name.innerText = pokemon.name;
         output.appendChild(name);
 
-        const info = document.createElement("p");
-        info.innerText += `ID: ${pokemon.id}\n`;
-        info.innerText += `Height: ${pokemon.height}\n`;
-        info.innerText += `Weight: ${pokemon.weight}`;
-        output.appendChild(info);
+        const container = document.createElement("div");
+        container.className = "container";
+        output.appendChild(container);
 
+        const image = document.createElement("img");
+        image.src = pokemon.sprites.front_default;
+        container.appendChild(image);
+
+        const info = document.createElement("div");
+        container.appendChild(info);
+
+        const id = document.createElement("p");
+        id.innerText += `ID: ${pokemon.id}`;
+        info.appendChild(id);
+        
+        const height = document.createElement("p");
+        height.innerText += `Height: ${pokemon.height}`;
+        info.appendChild(height);
+        
+        const weight = document.createElement("p");
+        weight.innerText += `Weight: ${pokemon.weight}`;
+        info.appendChild(weight);
+ 
         const typeHeading = document.createElement("h2");
         typeHeading.innerText = "Types:";
-        output.appendChild(typeHeading);
+        info.appendChild(typeHeading);
 
         const types = document.createElement("ul");
         for (let type of pokemon.types) {
@@ -50,10 +67,6 @@ axios
             typeItem.innerText = type.type.name;
             types.appendChild(typeItem);
         }
-        output.appendChild(types);
-
-        const image = document.createElement("img");
-        image.src = pokemon.sprites.front_default;
-        output.appendChild(image);
+        info.appendChild(types);
     })
     .catch(err => console.error(err));
