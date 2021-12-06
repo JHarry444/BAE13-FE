@@ -33,7 +33,7 @@ document.querySelector("#duckForm").addEventListener("submit", function(event) {
         name: form.name.value,
         age: form.age.value,
         colour: form.colour.value,
-        habitat: form.habitat.value
+        habitat: form.habitat.value,
     };
 
     console.log("DATA: ", data);
@@ -57,25 +57,50 @@ const getDucks = () => {
             const ducks = res.data;
             getOutput.innerHTML = ""; // blanks the output field
             for (let duck of ducks) {
-                const duckContainer = document.createElement("div");
-                    
-                const duckName = document.createElement("p");
-                duckName.innerText = `Name: ${duck.name}`;
-                duckContainer.appendChild(duckName);
+                const duckCol = document.createElement("div");
+                duckCol.classList.add("col");
+
+                const duckCard = document.createElement("div");
+                duckCard.style = `background-color: ${duck.colour}`;
+                duckCard.classList.add("card");
+
+                const duckBody = document.createElement("div");
+                duckBody.classList.add("card-body");
+
+                const duckName = document.createElement("h5");
+                duckName.classList.add("card-title");
+                duckName.innerText = duck.name;
+                duckBody.appendChild(duckName);
 
                 const duckAge = document.createElement("p");
+                duckAge.classList.add("card-text");
                 duckAge.innerText = `Age: ${duck.age}`;
-                duckContainer.appendChild(duckAge);
+                duckBody.appendChild(duckAge);
 
-                const duckColour = document.createElement("p");
-                duckColour.innerText = `Colour: ${duck.colour}`;
-                duckContainer.appendChild(duckColour);
+                // const duckColour = document.createElement("p");
+                // duckColour.classList.add("card-text");
+                // duckColour.innerText = `Colour: ${duck.colour}`;
+                // duckBody.appendChild(duckColour);
 
                 const duckHabitat = document.createElement("p");
+                duckHabitat.classList.add("card-text");
                 duckHabitat.innerText = `Habitat: ${duck.habitat}`;
-                duckContainer.appendChild(duckHabitat);
+                duckBody.appendChild(duckHabitat);
 
-                getOutput.appendChild(duckContainer);
+                const duckDelete = document.createElement("button");
+                duckDelete.innerText = "DELETE";
+                duckDelete.classList.add("btn", "btn-danger");
+                duckDelete.addEventListener("click", () => {
+                    axios
+                        .delete(`http://localhost:8081/duck​/deleteDuck​/${duck.id}`)
+                        .then(res => getDucks())
+                        .catch(err => console.error(err))
+                });
+                duckBody.appendChild(duckDelete);
+                duckCard.appendChild(duckBody);
+                duckCol.appendChild(duckCard);
+
+                getOutput.appendChild(duckCol);
             }
         })
         .catch(err => console.error(err));
